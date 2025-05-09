@@ -1,0 +1,63 @@
+
+Classes and Objects: Core to Java's object-oriented approach, classes are blueprints for creating objects, which are instances of classes containing attributes and methods.
+Inheritance: Allows a new class to inherit attributes and methods from an existing class, promoting code reuse and the creation of hierarchical class structures.
+Polymorphism: 
+Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance. 
+allowing for flexible and dynamic code through method overriding and overloading.
+
+Encapsulation: 
+Encapsulation is defined as the wrapping up of data under a single unit. It is the mechanism that binds together code and the data it manipulates. Another way to think about encapsulation is, that it is a protective shield that prevents the data from being accessed by the code outside this shield.
+
+
+Interfaces and Abstract Classes:  diff?????
+Interfaces define methods that a class must implement without providing the method body, while abstract classes can provide both fully implemented and abstract methods.
+
+Abstraction: 
+Allows defining abstract classes and interfaces that declare methods without implementing them, requiring subclasses to provide specific implementations, which promotes loose coupling and code clarity.
+
+Exception Handling: Provides a robust mechanism for handling runtime errors through try, catch, and finally blocks, allowing for graceful error recovery and improved program stability.
+
+Multithreading: Java supports concurrent execution of code via threads, allowing for parallel processing and efficient utilization of system resources.
+
+Garbage Collection: Java automatically manages memory through garbage collection, which removes objects no longer in use to free up memory and prevent leaks.  - https://www.javatpoint.com/Garbage-Collection
+
+Java Standard Library: A comprehensive collection of pre-written classes and methods for performing common tasks, including collections, I/O, networking, and more.
+Java Development Kit (JDK): A complete development environment that includes tools for compiling, debugging, and running Java applications, including the Java Runtime Environment (JRE) and the JVM.
+Generics: Allows writing flexible, reusable code by defining classes, interfaces, and methods with type parameters, ensuring type safety without casting.
+Annotations: Provide metadata for Java code, used for instructing the compiler or runtime about specific behaviors, aiding in code readability and maintenance.
+Lambda Expressions: Introduced in Java 8, allows the implementation of functional programming constructs, enabling concise and expressive code.
+Streams API: Also introduced in Java 8, provides a powerful way to process collections of data with a fluent API, supporting operations like filtering, mapping, and reducing.
+
+These concepts form the foundation of Java programming, enabling developers to create robust, maintainable, and efficient applications.
+
+
+
+Here are the definitions for JRE, JVM, and JDK in Java:
+
+JRE (Java Runtime Environment)
+
+- The JRE is the software package that provides the runtime environment for Java applications to run.
+- It includes the Java Virtual Machine (JVM), libraries, and other components needed to execute Java programs.
+- The JRE is used to run Java applications, but it cannot be used to compile or develop new Java programs.
+
+JVM (Java Virtual Machine) - 
+
+- The JVM is the core component of the JRE that interprets and executes Java bytecode.
+- It provides a platform-independent environment for Java code to run, allowing Java programs to be portable across different operating systems and hardware architectures.
+- The JVM performs various tasks, such as memory management, garbage collection, and security checks.
+
+JDK (Java Development Kit)
+
+- The JDK is a software package that provides the tools and libraries needed to develop, compile, and run Java applications.
+- It includes the JRE, as well as additional development tools, such as the Java compiler (javac), debugger (jdb), and other utilities.
+- The JDK is used by developers to create, test, and deploy Java applications, whereas the JRE is used by end-users to run Java applications.
+
+In summary:
+
+- JRE: Run Java applications 
+- JVM: Execute Java bytecode, provide platform indepent env to run app
+- JDK: Develop, compile, and run Java applications
+
+Let me know if you have any further questions!
+
+
