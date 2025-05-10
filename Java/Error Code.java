@@ -7,4 +7,39 @@ The client's request has incorrect syntax. The client needs to correct the reque
 • 500 Internal Server Error
 The server encountered an unexpected condition and was unable to complete the request. Developers or administrators need to resolve the issue on the server. 
 
-From <https://www.google.com/search?sca_esv=31c7c02de220de3d&sxsrf=ADLYWILRXaz5V1_Ly84iLdjaj-p4nNvcbA:1731741989163&q=error+code+400+and+500%27&source=lnms&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWd8nbOJfsBGGB5IQQO6L3J603JUkR9Y5suk8yuy50qOYMMWTNCTu57lKPsZpPcfqPO_IpBTFq5Iu5fjJcS9zeIjPFJUv87eZfN29UFdVUPMDQu7RK9R_bUPLOf1fjQfA8iavGDDNI4XAiPb7CBH_tYixgN7oUspZLXXXsRkqTIf5aqMzAsa5BiGd_cq9iXccaPMpaPw&sa=X&ved=2ahUKEwjj_ezQqeCJAxXjulYBHcY8LNYQ0pQJegQIDhAB&biw=1536&bih=695&dpr=1.25> 
+1xx - Informational Responses
+100 Continue – The server received the request headers and expects the client to continue sending the request body.
+
+101 Switching Protocols – The server is switching protocols based on the client's request.
+
+2xx - Success
+200 OK – The request was successful.
+
+201 Created – The request led to the creation of a new resource.
+
+204 No Content – The request was successful, but there is no content to return.
+
+3xx - Redirection
+301 Moved Permanently – The requested resource has been permanently moved to a new location.
+
+304 Not Modified – The resource has not changed since the last request, so the cached version can be used.
+
+4xx - Client Errors
+400 Bad Request – The server could not understand the request due to malformed syntax.
+
+401 Unauthorized – Authentication is required for the request.
+
+403 Forbidden – Access to the resource is denied.
+
+404 Not Found – The requested resource does not exist.
+
+408 Request Timeout – The server did not receive the request within the expected time frame.
+
+5xx - Server Errors
+500 Internal Server Error – The server encountered an unexpected condition that prevented it from fulfilling the request.
+
+502 Bad Gateway – The server received an invalid response from an upstream server.
+
+503 Service Unavailable – The server is temporarily unavailable, often due to maintenance.
+
+504 Gateway Timeout – The server did not receive a timely response from an upstream server.
