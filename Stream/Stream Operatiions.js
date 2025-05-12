@@ -30,8 +30,21 @@
 1. findFirst(): Stops processing as soon as it finds the first element.
 2. findAny(): Stops processing as soon as it finds any element.
 3. anyMatch(): Stops processing as soon as it finds an element that matches the given predicate.
+  List<Integer> numbers = Arrays.asList(3, 7, 9, 15);
+  boolean hasEven = numbers.stream().anyMatch(n -> n % 2 == 0);
+  System.out.println(hasEven); // Output: false
+
 4. allMatch(): Stops processing as soon as it finds an element that doesn't match the given predicate.
+    List<Integer> numbers = Arrays.asList(2, 4, 6, 8);
+    boolean allEven = numbers.stream().allMatch(n -> n % 2 == 0);
+    System.out.println(allEven); // Output: true
+
+
 5. noneMatch(): Stops processing as soon as it finds an element that matches the given predicate.
+  List<String> words = Arrays.asList("Java", "Python", "C++");
+  boolean noRust = words.stream().noneMatch(word -> word.equals("Rust"));
+  System.out.println(noRust); // Output: true
+
 
 # Other Operations
 1. parallel(): Returns a parallel Stream, which can be processed in parallel.
