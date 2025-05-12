@@ -1,0 +1,32 @@
+Streams!
+
+In Java, a Stream is a sequence of elements that can be processed in a pipeline fashion. 
+Streams provide a functional programming approach to processing data, making it easier to write concise and efficient code.
+
+Here are some key concepts related to Streams:
+
+1. Stream creation: Streams can be created from various sources, such as collections, arrays, files, and databases.
+2. Stream operations: Streams support various operations, including filtering, mapping, reducing, and collecting.
+3. Intermediate operations: Intermediate operations, such as filter() and map(), return a new Stream that can be further processed.
+4. Terminal operations: Terminal operations, such as forEach() and collect(), consume the Stream and produce a result.
+
+Some common Stream operations include:
+
+- filter(): Returns a new Stream containing only the elements that match a given predicate.
+- map(): Returns a new Stream containing the results of applying a given function to each element.
+- reduce(): Combines the elements of the Stream into a single result.
+- collect(): Accumulates the elements of the Stream into a collection, such as a List or Set.
+- forEach(): Applies a given action to each element of the Stream.
+
+Here's an example of using Streams to filter and map a collection of numbers:
+
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+List<Integer> evenNumbers = numbers.stream()
+        .filter(n -> n % 2 == 0)
+        .map(n -> n * 2)
+        .collect(Collectors.toList());
+
+System.out.println(evenNumbers); // [4, 8]
+
+I hope this helps! Let me know if you have any questions or need further clarification.
