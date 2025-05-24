@@ -1,0 +1,144 @@
+
+In Java, synchronization and asynchronization refer to how threads access and execute code.
+
+Synchronized
+Synchronized code is executed by only one thread at a time. 
+
+Key characteristics:
+- Only one thread can execute the synchronized code at a time.
+- Threads must wait for the lock to be released before executing the synchronized code.
+- Synchronized code is thread-safe.
+
+Example:
+
+public synchronized void incrementCounter() {
+    counter++;
+}
+
+
+Asynchronized (Asynchronous)
+Asynchronized or asynchronous code is executed by multiple threads concurrently. When a thread executes asynchronous code, it does not wait for the completion of the task. Instead, it continues executing other tasks.
+
+Key characteristics:
+- Multiple threads can execute asynchronous code concurrently.
+- Threads do not wait for the completion of asynchronous tasks.
+- Asynchronous code is not thread-safe by default.
+
+Example:
+
+public void incrementCounterAsync() {
+    new Thread(() -> {
+        counter++;
+    }).start();
+}
+
+
+Note: In the asynchronous example, the increment operation is not thread-safe. To make it thread-safe, you would need to use synchronization or atomic variables.
+
+In summary:
+
+- Synchronized code is executed by one thread at a time, ensuring thread safety.
+- Asynchronous code is executed by multiple threads concurrently, requiring additional measures for thread safety.
+
+Synchronized Example
+Suppose we have a simple bank account class with a method to withdraw money:
+
+public class BankAccount {
+    private int balance;
+    public synchronized void withdraw(int amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrew: " + amount);
+        } else {
+            System.out.println("Insufficient balance");
+        }
+    }
+    public synchronized int getBalance() {
+        return balance;
+    }
+    public BankAccount(int initialBalance) {
+        balance = initialBalance;
+    }
+}
+
+
+Now, let's create two threads that attempt to withdraw money from the same account:
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(100);
+        Thread thread1 = new Thread(() -> {
+            account.withdraw(50);
+        });
+        Thread thread2 = new Thread(() -> {
+            account.withdraw(70);
+        });
+        thread1.start();
+        thread2.start();
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        System.out.println("Final balance: " + account.getBalance());
+    }
+}
+
+
+o/p - 
+
+Withdrew: 50
+Insufficient balance
+Final balance: 50
+
+
+Asynchronous Example
+Now, let's modify the BankAccount class to use asynchronous withdrawal:
+
+public class BankAccount {
+    private int balance;
+    public void withdrawAsync(int amount) {
+        new Thread(() -> {
+            if (balance >= amount) {
+                balance -= amount;
+                System.out.println("Withdrew: " + amount);
+            } else {
+                System.out.println("Insufficient balance");
+            }
+        }).start();
+    }
+    public int getBalance() {
+        return balance;
+    }
+    public BankAccount(int initialBalance) {
+        balance = initialBalance;
+    }
+}
+
+
+We'll use the same Main class as before:
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(100);
+        account.withdrawAsync(50);
+        account.withdrawAsync(70);
+        try {
+            Thread.sleep(100); // Wait for the threads to finish
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        System.out.println("Final balance: " + account.getBalance());
+    }
+}
+
+
+Because the withdrawAsync method is asynchronous, both threads can execute it concurrently. However, this can lead to inconsistent results due to the lack of synchronization:
+
+Withdrew: 50
+Withdrew: 70
+Final balance: -20
+
+
+Note that the final balance is incorrect because the asynchronous withdrawals were not properly synchronized.
