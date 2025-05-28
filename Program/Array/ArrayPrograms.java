@@ -128,4 +128,41 @@ public class MajorityElement {
 
 Majority Element: 4
 
+// ---------------------
+
+ To find the minimum occurring element in an array, we can use hashing or a frequency map approach.
+
+✅ Method: Using HashMap (Efficient Approach
+
+                         
+import java.util.HashMap;
+
+public class MinFrequencyElement {
+    public static int findMinFrequencyElement(int[] arr) {
+        HashMap<Integer, Integer> freqMap = new HashMap<>();
+        
+        // Count occurrences of each element
+        for (int num : arr) {
+            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+        }
+
+        // Find the element with the minimum frequency
+        int minFreq = Integer.MAX_VALUE;
+        int minElement = -1;
+        
+        for (int key : freqMap.keySet()) {
+            if (freqMap.get(key) < minFreq) {
+                minFreq = freqMap.get(key);
+                minElement = key;
+            }
+        }
+
+        return minElement;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 3, 4, 2, 4, 4, 2, 4, 5, 5, 6};
+        System.out.println("Minimum Frequency Element: " + findMinFrequencyElement(arr));
+    }
+}
 These problems cover searching, sorting, hash-based approaches, and optimized algorithms. Want to try something even trickier like matrix operations or dynamic programming challenges? Let me know what you need!
