@@ -126,5 +126,6 @@ public class MajorityElement {
     }
 }
 
+Majority Element: 4
 
 These problems cover searching, sorting, hash-based approaches, and optimized algorithms. Want to try something even trickier like matrix operations or dynamic programming challenges? Let me know what you need!
